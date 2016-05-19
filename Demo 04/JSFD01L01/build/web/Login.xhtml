@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="css/stylelogin.css"  />
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        <f:view>
+        <h:form prependId="false" styleClass="form-4">
+            <h1>Login</h1>
+            <table width="300px" cellspacing="0">
+                <tr>
+                    <td>
+                        <p>
+                            <h:inputText value="#{user.name}" id="name" />
+                        </p>
+                    </td>
+                    <td><div id="status"></div></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <h:inputSecret value="#{user.pwd}" id="pwd"/>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <h:commandButton  value="Continue" action="#{user.getMyPage()}"/>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <h:commandButton  value="Ajax" >
+                                <f:ajax execute="name pwd" render="out"/>
+                            </h:commandButton>
+                        </p>
+                        <h3><h:outputText id="out" value="#{user.checkAjax()}" /></h3>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+        </f:view>
+    </h:body>
+</html>
